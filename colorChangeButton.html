@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      font-family: sans-serif;
+      font-size: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+
+    button{
+      margin-top: 60px;
+      border: none;
+      padding: 20px;
+      width: 30%;
+      font-weight: bold;
+      background-color: rgb(53, 50, 50);
+      color: white;
+    }
+    p{
+      text-transform: lowercase;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>COLOR CHANGER</h3>
+
+  <button>CLICK</button>
+  <p></p>
+
+  <script>
+    const btn = document.querySelector('button');
+    const text = document.querySelector("p");
+
+
+    function changeColor(){
+      const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+      let randomNum = '';
+      for(let i = 0; i<6; i++){
+        randomNum += hex[Math.floor(Math.random() * 16)];
+      }
+
+      const hexCode = `#${randomNum}`;
+
+      document.body.style.backgroundColor = hexCode;
+      text.innerHTML = hexCode;
+    }
+
+    btn.addEventListener('click',() => {
+      changeColor();
+    });
+
+  </script>
+</body>
+</html>
